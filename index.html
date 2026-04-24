@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>System Analyst Interview Prep</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <div class="shell">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="mark">SA</div>
+                <div>
+                    <h1>Interview Prep</h1>
+                    <p>System Analyst flashcards</p>
+                </div>
+            </div>
+
+            <nav class="nav">
+                <button class="nav-btn active" data-view="study">Study</button>
+                <button class="nav-btn" data-view="raw">Raw Questions</button>
+                <button class="nav-btn" data-view="dashboard">Dashboard</button>
+                <button class="nav-btn" data-view="cheatsheet">Cheat Sheet</button>
+            </nav>
+
+            <div class="mini-panel">
+                <h3>Study Modes</h3>
+                <button class="mode-btn active" data-mode="browse">Browse</button>
+                <button class="mode-btn" data-mode="quiz">Quiz</button>
+                <button class="mode-btn" data-mode="weak">Weak Spots</button>
+                <button class="mode-btn" data-mode="scenario">Scenarios</button>
+            </div>
+
+            <div class="mini-panel quiet">
+                <h3>Shortcuts</h3>
+                <p><b>Space</b> flip</p>
+                <p><b>← / →</b> navigate</p>
+                <p><b>1 / 2 / 3</b> know / learning / review</p>
+                <p><b>S</b> shuffle</p>
+            </div>
+        </aside>
+
+        <main class="main">
+            <header class="hero">
+                <div>
+                    <p class="eyebrow">Tomorrow-ready</p>
+                    <h2>Practice like an actual interview, not a textbook quiz.</h2>
+                    <p>The questions are broad enough to cover the bases, but practical enough that your answers sound human.</p>
+                </div>
+                <div class="hero-actions">
+                    <button id="exportBtn" class="ghost">Export Progress</button>
+                    <button id="printBtn" class="ghost">Print</button>
+                    <button id="resetBtn" class="danger">Reset</button>
+                </div>
+            </header>
+
+            <section class="metrics">
+                <div class="metric">
+                    <span id="visibleCount">0</span>
+                    <small>Visible</small>
+                </div>
+                <div class="metric good">
+                    <span id="knowCount">0</span>
+                    <small>Know It</small>
+                </div>
+                <div class="metric mid">
+                    <span id="learningCount">0</span>
+                    <small>Learning</small>
+                </div>
+                <div class="metric bad">
+                    <span id="reviewCount">0</span>
+                    <small>Review</small>
+                </div>
+            </section>
+
+            <section class="filters cardish">
+                <label>
+                    Category
+                    <select id="categoryFilter"></select>
+                </label>
+                <label>
+                    Difficulty
+                    <select id="difficultyFilter">
+                        <option value="All">All</option>
+                        <option value="Foundation">Foundation</option>
+                        <option value="Practical">Practical</option>
+                        <option value="Interview">Interview</option>
+                        <option value="Scenario">Scenario</option>
+                    </select>
+                </label>
+                <label>
+                    Status
+                    <select id="statusFilter">
+                        <option value="All">All</option>
+                        <option value="New">New</option>
+                        <option value="Know It">Know It</option>
+                        <option value="Learning">Learning</option>
+                        <option value="Review">Review</option>
+                    </select>
+                </label>
+                <label class="wide">
+                    Search / Keyword
+                    <input id="searchInput" placeholder="Try: incident, sprint, rollback, stakeholder..." />
+                </label>
+                <button id="shuffleBtn" class="primary">Shuffle</button>
+            </section>
+
+            <section id="studyView" class="view active">
+                <div class="study-grid">
+                    <section class="flash-wrap">
+                        <div class="card-meta">
+                            <span id="catBadge">Category</span>
+                            <span id="diffBadge">Difficulty</span>
+                            <span id="statusBadge">New</span>
+                            <span id="positionBadge">1 / 1</span>
+                        </div>
+
+                        <article id="flashcard" class="flashcard" tabindex="0">
+                            <div class="inner">
+                                <div class="face front">
+                                    <p>Question</p>
+                                    <h3 id="questionText"></h3>
+                                    <small>Say the answer out loud first, then flip.</small>
+                                </div>
+                                <div class="face back">
+                                    <p>Answer</p>
+                                    <h3 id="answerText"></h3>
+                                    <div id="whyText" class="why"></div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <div class="actions">
+                            <button id="prevBtn" class="ghost">Previous</button>
+                            <button id="flipBtn" class="primary">Flip</button>
+                            <button id="nextBtn" class="ghost">Next</button>
+                        </div>
+
+                        <div class="rating">
+                            <button id="knowBtn" class="good-btn">1 · Know It</button>
+                            <button id="learningBtn" class="mid-btn">2 · Learning</button>
+                            <button id="reviewBtn" class="bad-btn">3 · Review</button>
+                        </div>
+                    </section>
+
+                    <aside class="coach cardish">
+                        <h3>Answer Coach</h3>
+                        <p id="coachText">Keep answers short: define it, explain why it matters, then give one example.</p>
+                        <div class="timer">
+                            <h4>Interview Timer</h4>
+                            <p id="timerText">Off</p>
+                            <button data-minutes="1" class="ghost timer-btn">1 min</button>
+                            <button data-minutes="5" class="ghost timer-btn">5 min</button>
+                            <button data-minutes="10" class="ghost timer-btn">10 min</button>
+                        </div>
+                    </aside>
+                </div>
+
+                <section class="list-section cardish">
+                    <div class="section-head">
+                        <div>
+                            <h3>Current Deck</h3>
+                            <p>Click any card to jump to it.</p>
+                        </div>
+                    </div>
+                    <div id="cardList" class="card-list"></div>
+                </section>
+            </section>
+
+            <section id="rawView" class="view">
+                <div class="raw-layout">
+                    <div class="cardish raw-controls">
+                        <h3>Raw Question Browser</h3>
+                        <p>Use this during prep like a messy interview search. Type rough phrases, typos, or partial ideas like <b>poblem management impact</b>, <b>failed deploy rollback</b>, or <b>sprint review team improve</b>. It will rank relevant answers instead of only doing exact text search.</p>
+                        <input id="rawKeyword" placeholder="Example: poblem management impact dev team..." />
+                        <div class="raw-actions">
+                            <button id="rawPrev" class="ghost">Previous Match</button>
+                            <button id="rawNext" class="primary">Next Match</button>
+                        </div>
+                        <p id="rawMatchInfo" class="match-info">0 matches</p>
+                    </div>
+                    <pre id="rawText" class="raw-text"></pre>
+                </div>
+            </section>
+
+            <section id="dashboardView" class="view">
+                <div class="dashboard-grid">
+                    <div class="cardish">
+                        <h3>Category Progress</h3>
+                        <div id="categoryProgress" class="progress-list"></div>
+                    </div>
+                    <div class="cardish">
+                        <h3>Weak Spots</h3>
+                        <div id="weakList" class="weak-list"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="cheatsheetView" class="view">
+                <div class="cheat cardish">
+                    <h3>Final Interview Cheat Sheet</h3>
+                    <p><b>Agile/Scrum:</b> how teams build iteratively, get feedback, and adapt.</p>
+                    <p><b>ITIL 4:</b> how IT services are managed, supported, and improved.</p>
+                    <p><b>Change Management:</b> how updates are introduced safely without breaking live systems.</p>
+                    <p><b>Best Practices:</b> staging, testing, version control, reviews, monitoring, logging, documentation, backups, and rollback plans.</p>
+                    <p><b>System Analyst:</b> bridge between business needs and technical solutions.</p>
+                    <hr />
+                    <h4>Use this if you blank:</h4>
+                    <blockquote>“Agile and Scrum help teams build in small, feedback-driven cycles. ITIL helps manage and support services once they are running. Change management controls risk when updates are introduced, and industry best practices keep everything reliable, documented, tested, and maintainable.”</blockquote>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
