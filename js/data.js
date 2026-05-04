@@ -889,7 +889,263 @@ const CARDS = [
         "q": "What should your answers generally show in the interview?",
         "a": "That you think about users, risk, communication, documentation, testing, service reliability, and continuous improvement.",
         "why": "This is what they are really testing."
+    },
+
+    // ── SQL ──────────────────────────────────────────────────────────────────
+
+    // Beginner (Foundation)
+    {
+        "category": "SQL",
+        "difficulty": "Foundation",
+        "keywords": ["select", "query", "retrieve"],
+        "q": "What does SELECT do in SQL?",
+        "a": "SELECT retrieves rows and columns from one or more database tables.",
+        "why": "Every SQL query starts here — it is the most fundamental command."
+    },
+    {
+        "category": "SQL",
+        "difficulty": "Foundation",
+        "keywords": ["where", "filter", "condition"],
+        "q": "What does the WHERE clause do?",
+        "a": "WHERE filters rows so only rows that match a condition are returned.",
+        "why": "Without WHERE you get every row; with it you get only what you need."
+    },
+    {
+        "category": "SQL",
+        "difficulty": "Foundation",
+        "keywords": ["order by", "sort", "ascending", "descending"],
+        "q": "What does ORDER BY do?",
+        "a": "ORDER BY sorts the result set by one or more columns, ascending by default.",
+        "why": "Use ASC or DESC to control direction — interviewers test this often."
+    },
+    {
+        "category": "SQL",
+        "difficulty": "Foundation",
+        "keywords": ["distinct", "unique", "duplicates"],
+        "q": "What does SELECT DISTINCT do?",
+        "a": "It returns only unique values, removing duplicate rows from the result.",
+        "why": "A quick way to see how many unique values exist in a column."
+    },
+    {
+        "category": "SQL",
+        "difficulty": "Foundation",
+        "keywords": ["primary key", "unique", "identifier"],
+        "q": "What is a primary key?",
+        "a": "A column (or set of columns) that uniquely identifies every row in a table and cannot be NULL.",
+        "why": "Databases use primary keys to enforce uniqueness and link tables together."
+    },
+    {
+        "category": "SQL",
+        "difficulty": "Foundation",
+        "keywords": ["foreign key", "relationship", "reference"],
+        "q": "What is a foreign key?",
+        "a": "A column in one table that references the primary key of another table, creating a relationship.",
+        "why": "Foreign keys enforce referential integrity — the linked record must exist."
+    },
+    {
+        "category": "SQL",
+        "difficulty": "Foundation",
+        "keywords": ["null", "missing", "unknown"],
+        "q": "What does NULL mean in SQL?",
+        "a": "NULL means the value is unknown or missing — it is not zero or an empty string.",
+        "why": "NULL comparisons use IS NULL / IS NOT NULL, not = or !=, which trips people up."
+    },
+    {
+        "category": "SQL",
+        "difficulty": "Foundation",
+        "keywords": ["aggregate", "count", "sum", "avg", "min", "max"],
+        "q": "Name the five main aggregate functions in SQL.",
+        "a": "COUNT, SUM, AVG, MIN, and MAX — they compute a single value from a set of rows.",
+        "why": "Aggregates are the foundation of any summary or reporting query."
+    },
+    {
+        "category": "SQL",
+        "difficulty": "Foundation",
+        "keywords": ["group by", "aggregate", "group"],
+        "q": "What does GROUP BY do?",
+        "a": "GROUP BY groups rows that share a value in a column so aggregate functions can be applied per group.",
+        "why": "Think 'total sales per region' — GROUP BY is what makes that possible."
+    },
+    {
+        "category": "SQL",
+        "difficulty": "Foundation",
+        "keywords": ["insert", "update", "delete", "dml"],
+        "q": "What are INSERT, UPDATE, and DELETE used for?",
+        "a": "INSERT adds new rows, UPDATE modifies existing rows, DELETE removes rows from a table.",
+        "why": "These are the three DML commands that change data — not just read it."
+    },
+
+    // Intermediate (Practical)
+    {
+        "category": "SQL",
+        "difficulty": "Practical",
+        "keywords": ["join", "inner join", "left join", "right join"],
+        "q": "What is the difference between INNER JOIN and LEFT JOIN?",
+        "a": "INNER JOIN returns only rows that match in both tables. LEFT JOIN returns all rows from the left table, with NULLs where there is no match on the right.",
+        "why": "This is one of the most common interview questions — know all four join types."
+    },
+    {
+        "category": "SQL",
+        "difficulty": "Practical",
+        "keywords": ["full outer join", "cross join", "join types"],
+        "q": "What does a FULL OUTER JOIN return?",
+        "a": "All rows from both tables, with NULLs wherever there is no match on either side.",
+        "why": "Use it when you need to see all records regardless of whether they match."
+    },
+    {
+        "category": "SQL",
+        "difficulty": "Practical",
+        "keywords": ["having", "group by", "filter aggregate"],
+        "q": "What is the difference between WHERE and HAVING?",
+        "a": "WHERE filters rows before grouping; HAVING filters groups after GROUP BY has been applied.",
+        "why": "You cannot use WHERE to filter on an aggregate like COUNT(*) — that is what HAVING is for."
+    },
+    {
+        "category": "SQL",
+        "difficulty": "Practical",
+        "keywords": ["subquery", "nested query", "inner query"],
+        "q": "What is a subquery?",
+        "a": "A subquery is a query nested inside another query, used to supply a value or set of values to the outer query.",
+        "why": "Subqueries are flexible but can be slow — CTEs are often clearer and easier to optimise."
+    },
+    {
+        "category": "SQL",
+        "difficulty": "Practical",
+        "keywords": ["alias", "as", "column alias", "table alias"],
+        "q": "What is an alias in SQL?",
+        "a": "An alias gives a column or table a temporary name using AS, making queries shorter and results easier to read.",
+        "why": "Aliases are essential in joins and subqueries to avoid ambiguous column names."
+    },
+    {
+        "category": "SQL",
+        "difficulty": "Practical",
+        "keywords": ["union", "union all", "combine", "sets"],
+        "q": "What is the difference between UNION and UNION ALL?",
+        "a": "UNION removes duplicates from the combined result; UNION ALL keeps all rows including duplicates.",
+        "why": "UNION ALL is faster because it skips the deduplication step — use it when duplicates are acceptable."
+    },
+    {
+        "category": "SQL",
+        "difficulty": "Practical",
+        "keywords": ["like", "wildcard", "pattern", "percent"],
+        "q": "How does the LIKE operator work?",
+        "a": "LIKE matches text patterns using % (any sequence of characters) and _ (exactly one character).",
+        "why": "Example: WHERE name LIKE 'J%' finds all names starting with J."
+    },
+    {
+        "category": "SQL",
+        "difficulty": "Practical",
+        "keywords": ["case", "case when", "conditional", "if else"],
+        "q": "What does a CASE statement do in SQL?",
+        "a": "CASE adds conditional logic to a query, returning different values depending on which condition is met — like an if-else in code.",
+        "why": "Use CASE to create derived columns or bucket values without changing the underlying data."
+    },
+    {
+        "category": "SQL",
+        "difficulty": "Practical",
+        "keywords": ["index", "performance", "speed"],
+        "q": "What is a database index and why does it matter?",
+        "a": "An index is a data structure that speeds up row lookups by letting the database find rows without scanning the whole table.",
+        "why": "Adding an index on a frequently filtered column can cut query time from seconds to milliseconds."
+    },
+    {
+        "category": "SQL",
+        "difficulty": "Practical",
+        "keywords": ["date function", "datepart", "datediff", "date"],
+        "q": "How do you work with dates in SQL?",
+        "a": "Use date functions like DATEDIFF (difference between dates), DATEPART (extract part of a date), and GETDATE() or NOW() for the current date.",
+        "why": "Date logic is common in business queries — know which functions your database supports."
+    },
+
+    // Advanced (Interview + Scenario)
+    {
+        "category": "SQL",
+        "difficulty": "Interview",
+        "keywords": ["cte", "common table expression", "with", "readability"],
+        "q": "What is a CTE and when would you use one?",
+        "a": "A CTE (Common Table Expression) is a named temporary result set defined with WITH. Use it to break a complex query into readable, reusable steps.",
+        "why": "CTEs make nested logic readable and are easier to debug than deeply nested subqueries."
+    },
+    {
+        "category": "SQL",
+        "difficulty": "Interview",
+        "keywords": ["window function", "over", "partition by", "rank", "row number"],
+        "q": "What are window functions in SQL?",
+        "a": "Window functions compute a value across a set of related rows without collapsing them into a single row, using an OVER clause.",
+        "why": "ROW_NUMBER, RANK, LAG, and LEAD are classic interview topics — they cannot be replaced by GROUP BY."
+    },
+    {
+        "category": "SQL",
+        "difficulty": "Interview",
+        "keywords": ["rank", "dense_rank", "row_number", "difference"],
+        "q": "What is the difference between ROW_NUMBER, RANK, and DENSE_RANK?",
+        "a": "ROW_NUMBER assigns a unique sequential number. RANK skips numbers after ties. DENSE_RANK does not skip — tied rows get the same rank and the next rank is consecutive.",
+        "why": "Interviewers test this to see if you understand tie-handling in ordered result sets."
+    },
+    {
+        "category": "SQL",
+        "difficulty": "Interview",
+        "keywords": ["lag", "lead", "previous row", "next row"],
+        "q": "What do LAG and LEAD do?",
+        "a": "LAG accesses a value from a previous row; LEAD accesses a value from a following row — both within a window partition.",
+        "why": "Use them to calculate period-over-period differences without a self-join."
+    },
+    {
+        "category": "SQL",
+        "difficulty": "Interview",
+        "keywords": ["normalization", "1nf", "2nf", "3nf", "redundancy"],
+        "q": "What is database normalisation?",
+        "a": "Normalisation organises tables to reduce data redundancy and improve integrity by following rules called normal forms (1NF, 2NF, 3NF).",
+        "why": "Knowing normalisation shows you understand database design, not just querying."
+    },
+    {
+        "category": "SQL",
+        "difficulty": "Interview",
+        "keywords": ["acid", "transaction", "atomicity", "consistency", "isolation", "durability"],
+        "q": "What does ACID stand for in databases?",
+        "a": "Atomicity (all-or-nothing), Consistency (data stays valid), Isolation (transactions do not interfere), Durability (committed data survives failure).",
+        "why": "ACID guarantees are what make relational databases reliable for financial and critical systems."
+    },
+    {
+        "category": "SQL",
+        "difficulty": "Interview",
+        "keywords": ["execution plan", "explain", "query plan", "optimise"],
+        "q": "What is a query execution plan?",
+        "a": "An execution plan shows the steps the database engine will take to run a query — including which indexes it uses and where table scans occur.",
+        "why": "Reading an execution plan is the first step in diagnosing a slow query."
+    },
+    {
+        "category": "SQL",
+        "difficulty": "Scenario",
+        "keywords": ["slow query", "performance", "optimise", "index"],
+        "q": "A query runs fine on 1,000 rows but times out on 1 million rows. What do you do?",
+        "a": "Check the execution plan for table scans, add indexes on filtered/joined columns, avoid SELECT *, and consider breaking the query into steps with a CTE or temp table.",
+        "why": "This is a real-world performance scenario — show you diagnose before you change anything."
+    },
+    {
+        "category": "SQL",
+        "difficulty": "Scenario",
+        "keywords": ["duplicate rows", "deduplicate", "row_number", "cte"],
+        "q": "You have a table with duplicate rows. How do you remove them while keeping one copy?",
+        "a": "Use a CTE with ROW_NUMBER() OVER (PARTITION BY key_columns ORDER BY id), then DELETE rows where the row number is greater than 1.",
+        "why": "This combines window functions with a DELETE — a classic advanced SQL pattern."
+    },
+    {
+        "category": "SQL",
+        "difficulty": "Scenario",
+        "keywords": ["running total", "cumulative sum", "window", "sum over"],
+        "q": "How would you calculate a running total in SQL?",
+        "a": "Use SUM(column) OVER (ORDER BY date_column ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) as a window function.",
+        "why": "Running totals appear in finance and reporting — window functions are the clean solution."
+    },
+    {
+        "category": "SQL",
+        "difficulty": "Scenario",
+        "keywords": ["pivot", "crosstab", "rows to columns"],
+        "q": "How would you turn row values into columns in SQL?",
+        "a": "Use a CASE WHEN with GROUP BY to manually pivot, or use the PIVOT operator in databases that support it (SQL Server, Oracle).",
+        "why": "Pivoting is common in reporting. Know the CASE-based approach since not all databases have PIVOT."
     }
 ];
 
-const RAW_QUESTIONS = "[ITIL 4 | Foundation] What is ITIL 4?  #itil #service management #value\n[ITIL 4 | Foundation] What is the main goal of ITIL 4?  #goal #value #business\n[ITIL 4 | Foundation] What is an incident in ITIL?  #incident #outage #restore\n[ITIL 4 | Practical] What is incident management focused on?  #incident management #restore #support\n[ITIL 4 | Practical] What is problem management?  #problem management #root cause #recurring\n[ITIL 4 | Practical] What is change enablement in ITIL 4?  #change enablement #risk #approval\n[ITIL 4 | Practical] What is the service desk?  #service desk #support #contact\n[ITIL 4 | Practical] What is continual improvement?  #continual improvement #improve #process\n[ITIL 4 | Interview] What is the ITIL Service Value System?  #service value system #svs #value\n[ITIL 4 | Interview] What are the Service Value Chain activities?  #service value chain #plan #deliver\n[ITIL 4 | Interview] What are the four dimensions of ITIL 4?  #four dimensions #people #technology\n[ITIL 4 | Interview] Name a few ITIL 4 guiding principles.  #guiding principles #value #simple\n[ITIL 4 | Scenario] A system goes down. How would ITIL guide the response?  #outage #incident #problem\n[ITIL 4 | Scenario] What is the difference between an incident and a service request?  #service request #incident\n[Agile | Foundation] What is Agile?  #agile #iterative #feedback\n[Agile | Foundation] What is a key benefit of Agile?  #benefit #feedback #adapt\n[Agile | Foundation] How is Agile different from Waterfall?  #waterfall #agile #difference\n[Agile | Practical] What does iterative development mean?  #iteration #increment #small steps\n[Agile | Practical] What is a backlog?  #backlog #priorities\n[Agile | Practical] What is a user story?  #user story #requirements\n[Agile | Practical] What are acceptance criteria?  #acceptance criteria #done\n[Agile | Interview] What does Agile prioritize?  #agile manifesto #values\n[Agile | Interview] What is Definition of Done?  #definition of done #quality\n[Agile | Interview] What is velocity in Agile?  #velocity #metrics\n[Agile | Interview] What is a burndown chart?  #burndown #chart\n[Agile | Scenario] What would you do if requirements changed halfway through a project?  #changing requirements #feedback\n[Agile | Scenario] How would you handle scope creep?  #scope creep #requirements\n[Scrum | Foundation] What is Scrum?  #scrum #agile framework\n[Scrum | Foundation] What is a sprint?  #sprint #cycle\n[Scrum | Foundation] What does a Scrum Master do?  #scrum master #blockers\n[Scrum | Foundation] What does a Product Owner do?  #product owner #priority\n[Scrum | Foundation] What does the development team do in Scrum?  #development team #developers\n[Scrum | Practical] What is the purpose of a daily standup?  #daily standup #blockers\n[Scrum | Practical] What happens in sprint planning?  #sprint planning #goal\n[Scrum | Practical] What is a sprint review?  #sprint review #product\n[Scrum | Practical] What is a retrospective?  #retrospective #team\n[Scrum | Interview] What is the difference between a sprint review and a retrospective?  #review vs retro #difference\n[Scrum | Interview] What is a product increment?  #increment #deliverable\n[Scrum | Interview] What are the main Scrum artifacts?  #scrum artifacts #backlog\n[Scrum | Scenario] If a developer is blocked, what should happen in Scrum?  #blocker #scrum master\n[Scrum | Scenario] What happens if work is not finished by the end of a sprint?  #unfinished work #sprint\n[Change Management | Foundation] What is change management?  #change management #risk\n[Change Management | Foundation] Why is change management important?  #importance #risk #outage\n[Change Management | Foundation] What is a standard change?  #standard change #routine\n[Change Management | Foundation] What is a normal change?  #normal change #approval\n[Change Management | Foundation] What is an emergency change?  #emergency change #urgent\n[Change Management | Practical] What is a rollback plan?  #rollback #deployment\n[Change Management | Practical] What is a change impact assessment?  #impact assessment #risk\n[Change Management | Practical] What is a Change Advisory Board, or CAB?  #cab #approval\n[Change Management | Interview] How would you safely deploy a change?  #deployment safe #staging\n[Change Management | Interview] Why is communication important during change?  #communication #stakeholders\n[Change Management | Interview] What is ADKAR?  #adkar #organizational change\n[Change Management | Interview] What is Kotter's 8-step model?  #kotter #8 step\n[Change Management | Scenario] A deployment breaks production. What do you do?  #failed deployment #rollback\n[Change Management | Scenario] Users are resisting a new system. How would you approach it?  #resistance #users\n[System Analysis | Foundation] What does a System Analyst do?  #system analyst #bridge\n[System Analysis | Foundation] What is a stakeholder?  #stakeholder #users\n[System Analysis | Foundation] What is a functional requirement?  #functional requirement\n[System Analysis | Foundation] What is a non-functional requirement?  #nonfunctional requirement #performance\n[System Analysis | Practical] What is process mapping?  #process mapping #workflow\n[System Analysis | Practical] What is the difference between as-is and to-be processes?  #as-is to-be\n[System Analysis | Practical] What are common requirements gathering techniques?  #requirements gathering #interviews\n[System Analysis | Interview] How would you handle unclear requirements?  #unclear requirements #clarify\n[System Analysis | Interview] Why is documentation important for a System Analyst?  #documentation #alignment\n[System Analysis | Scenario] Two stakeholders disagree on a requirement. What do you do?  #conflicting stakeholders\n[Best Practices | Foundation] Why use version control?  #version control #git\n[Best Practices | Foundation] Why use a staging environment?  #staging #test\n[Best Practices | Foundation] Why are code reviews useful?  #code review #quality\n[Best Practices | Foundation] Why is monitoring important?  #monitoring #alerts\n[Best Practices | Practical] What is logging?  #logging #troubleshooting\n[Best Practices | Practical] What is CI/CD?  #ci/cd #automation\n[Best Practices | Practical] Why are backups important?  #backup #recovery\n[Best Practices | Practical] What is least privilege?  #least privilege #security\n[Best Practices | Interview] Why are small releases usually safer?  #small releases #risk\n[Best Practices | Interview] What is a post-implementation review?  #post implementation review #pir\n[Best Practices | Interview] What best practices would you mention in an interview?  #best practices list\n[Best Practices | Scenario] How would you respond to a production issue?  #production issue #monitoring\n[Tie It Together | Interview] How do Agile, Scrum, ITIL, and change management connect?  #agile itil change management\n[Tie It Together | Interview] Give a simple mental model for these topics.  #build run deploy\n[Tie It Together | Scenario] What should your answers generally show in the interview?  #interview answer";
+const RAW_QUESTIONS = "[ITIL 4 | Foundation] What is ITIL 4?  #itil #service management #value\n[ITIL 4 | Foundation] What is the main goal of ITIL 4?  #goal #value #business\n[ITIL 4 | Foundation] What is an incident in ITIL?  #incident #outage #restore\n[ITIL 4 | Practical] What is incident management focused on?  #incident management #restore #support\n[ITIL 4 | Practical] What is problem management?  #problem management #root cause #recurring\n[ITIL 4 | Practical] What is change enablement in ITIL 4?  #change enablement #risk #approval\n[ITIL 4 | Practical] What is the service desk?  #service desk #support #contact\n[ITIL 4 | Practical] What is continual improvement?  #continual improvement #improve #process\n[ITIL 4 | Interview] What is the ITIL Service Value System?  #service value system #svs #value\n[ITIL 4 | Interview] What are the Service Value Chain activities?  #service value chain #plan #deliver\n[ITIL 4 | Interview] What are the four dimensions of ITIL 4?  #four dimensions #people #technology\n[ITIL 4 | Interview] Name a few ITIL 4 guiding principles.  #guiding principles #value #simple\n[ITIL 4 | Scenario] A system goes down. How would ITIL guide the response?  #outage #incident #problem\n[ITIL 4 | Scenario] What is the difference between an incident and a service request?  #service request #incident\n[Agile | Foundation] What is Agile?  #agile #iterative #feedback\n[Agile | Foundation] What is a key benefit of Agile?  #benefit #feedback #adapt\n[Agile | Foundation] How is Agile different from Waterfall?  #waterfall #agile #difference\n[Agile | Practical] What does iterative development mean?  #iteration #increment #small steps\n[Agile | Practical] What is a backlog?  #backlog #priorities\n[Agile | Practical] What is a user story?  #user story #requirements\n[Agile | Practical] What are acceptance criteria?  #acceptance criteria #done\n[Agile | Interview] What does Agile prioritize?  #agile manifesto #values\n[Agile | Interview] What is Definition of Done?  #definition of done #quality\n[Agile | Interview] What is velocity in Agile?  #velocity #metrics\n[Agile | Interview] What is a burndown chart?  #burndown #chart\n[Agile | Scenario] What would you do if requirements changed halfway through a project?  #changing requirements #feedback\n[Agile | Scenario] How would you handle scope creep?  #scope creep #requirements\n[Scrum | Foundation] What is Scrum?  #scrum #agile framework\n[Scrum | Foundation] What is a sprint?  #sprint #cycle\n[Scrum | Foundation] What does a Scrum Master do?  #scrum master #blockers\n[Scrum | Foundation] What does a Product Owner do?  #product owner #priority\n[Scrum | Foundation] What does the development team do in Scrum?  #development team #developers\n[Scrum | Practical] What is the purpose of a daily standup?  #daily standup #blockers\n[Scrum | Practical] What happens in sprint planning?  #sprint planning #goal\n[Scrum | Practical] What is a sprint review?  #sprint review #product\n[Scrum | Practical] What is a retrospective?  #retrospective #team\n[Scrum | Interview] What is the difference between a sprint review and a retrospective?  #review vs retro #difference\n[Scrum | Interview] What is a product increment?  #increment #deliverable\n[Scrum | Interview] What are the main Scrum artifacts?  #scrum artifacts #backlog\n[Scrum | Scenario] If a developer is blocked, what should happen in Scrum?  #blocker #scrum master\n[Scrum | Scenario] What happens if work is not finished by the end of a sprint?  #unfinished work #sprint\n[Change Management | Foundation] What is change management?  #change management #risk\n[Change Management | Foundation] Why is change management important?  #importance #risk #outage\n[Change Management | Foundation] What is a standard change?  #standard change #routine\n[Change Management | Foundation] What is a normal change?  #normal change #approval\n[Change Management | Foundation] What is an emergency change?  #emergency change #urgent\n[Change Management | Practical] What is a rollback plan?  #rollback #deployment\n[Change Management | Practical] What is a change impact assessment?  #impact assessment #risk\n[Change Management | Practical] What is a Change Advisory Board, or CAB?  #cab #approval\n[Change Management | Interview] How would you safely deploy a change?  #deployment safe #staging\n[Change Management | Interview] Why is communication important during change?  #communication #stakeholders\n[Change Management | Interview] What is ADKAR?  #adkar #organizational change\n[Change Management | Interview] What is Kotter's 8-step model?  #kotter #8 step\n[Change Management | Scenario] A deployment breaks production. What do you do?  #failed deployment #rollback\n[Change Management | Scenario] Users are resisting a new system. How would you approach it?  #resistance #users\n[System Analysis | Foundation] What does a System Analyst do?  #system analyst #bridge\n[System Analysis | Foundation] What is a stakeholder?  #stakeholder #users\n[System Analysis | Foundation] What is a functional requirement?  #functional requirement\n[System Analysis | Foundation] What is a non-functional requirement?  #nonfunctional requirement #performance\n[System Analysis | Practical] What is process mapping?  #process mapping #workflow\n[System Analysis | Practical] What is the difference between as-is and to-be processes?  #as-is to-be\n[System Analysis | Practical] What are common requirements gathering techniques?  #requirements gathering #interviews\n[System Analysis | Interview] How would you handle unclear requirements?  #unclear requirements #clarify\n[System Analysis | Interview] Why is documentation important for a System Analyst?  #documentation #alignment\n[System Analysis | Scenario] Two stakeholders disagree on a requirement. What do you do?  #conflicting stakeholders\n[Best Practices | Foundation] Why use version control?  #version control #git\n[Best Practices | Foundation] Why use a staging environment?  #staging #test\n[Best Practices | Foundation] Why are code reviews useful?  #code review #quality\n[Best Practices | Foundation] Why is monitoring important?  #monitoring #alerts\n[Best Practices | Practical] What is logging?  #logging #troubleshooting\n[Best Practices | Practical] What is CI/CD?  #ci/cd #automation\n[Best Practices | Practical] Why are backups important?  #backup #recovery\n[Best Practices | Practical] What is least privilege?  #least privilege #security\n[Best Practices | Interview] Why are small releases usually safer?  #small releases #risk\n[Best Practices | Interview] What is a post-implementation review?  #post implementation review #pir\n[Best Practices | Interview] What best practices would you mention in an interview?  #best practices list\n[Best Practices | Scenario] How would you respond to a production issue?  #production issue #monitoring\n[Tie It Together | Interview] How do Agile, Scrum, ITIL, and change management connect?  #agile itil change management\n[Tie It Together | Interview] Give a simple mental model for these topics.  #build run deploy\n[Tie It Together | Scenario] What should your answers generally show in the interview?  #interview answer\n[SQL | Foundation] What does SELECT do in SQL?  #select #query #retrieve\n[SQL | Foundation] What does the WHERE clause do?  #where #filter #condition\n[SQL | Foundation] What does ORDER BY do?  #order by #sort #ascending #descending\n[SQL | Foundation] What does SELECT DISTINCT do?  #distinct #unique #duplicates\n[SQL | Foundation] What is a primary key?  #primary key #unique #identifier\n[SQL | Foundation] What is a foreign key?  #foreign key #relationship #reference\n[SQL | Foundation] What does NULL mean in SQL?  #null #missing #unknown\n[SQL | Foundation] Name the five main aggregate functions in SQL.  #aggregate #count #sum #avg #min #max\n[SQL | Foundation] What does GROUP BY do?  #group by #aggregate #group\n[SQL | Foundation] What are INSERT, UPDATE, and DELETE used for?  #insert #update #delete #dml\n[SQL | Practical] What is the difference between INNER JOIN and LEFT JOIN?  #join #inner join #left join #right join\n[SQL | Practical] What does a FULL OUTER JOIN return?  #full outer join #cross join #join types\n[SQL | Practical] What is the difference between WHERE and HAVING?  #having #group by #filter aggregate\n[SQL | Practical] What is a subquery?  #subquery #nested query #inner query\n[SQL | Practical] What is an alias in SQL?  #alias #as #column alias #table alias\n[SQL | Practical] What is the difference between UNION and UNION ALL?  #union #union all #combine #sets\n[SQL | Practical] How does the LIKE operator work?  #like #wildcard #pattern #percent\n[SQL | Practical] What does a CASE statement do in SQL?  #case #case when #conditional #if else\n[SQL | Practical] What is a database index and why does it matter?  #index #performance #speed\n[SQL | Practical] How do you work with dates in SQL?  #date function #datepart #datediff #date\n[SQL | Interview] What is a CTE and when would you use one?  #cte #common table expression #with #readability\n[SQL | Interview] What are window functions in SQL?  #window function #over #partition by #rank #row number\n[SQL | Interview] What is the difference between ROW_NUMBER, RANK, and DENSE_RANK?  #rank #dense_rank #row_number #difference\n[SQL | Interview] What do LAG and LEAD do?  #lag #lead #previous row #next row\n[SQL | Interview] What is database normalisation?  #normalization #1nf #2nf #3nf #redundancy\n[SQL | Interview] What does ACID stand for in databases?  #acid #transaction #atomicity #consistency #isolation #durability\n[SQL | Interview] What is a query execution plan?  #execution plan #explain #query plan #optimise\n[SQL | Scenario] A query runs fine on 1,000 rows but times out on 1 million rows. What do you do?  #slow query #performance #optimise #index\n[SQL | Scenario] You have a table with duplicate rows. How do you remove them while keeping one copy?  #duplicate rows #deduplicate #row_number #cte\n[SQL | Scenario] How would you calculate a running total in SQL?  #running total #cumulative sum #window #sum over\n[SQL | Scenario] How would you turn row values into columns in SQL?  #pivot #crosstab #rows to columns";
